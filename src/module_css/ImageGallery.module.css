@@ -1,0 +1,14 @@
+/** @format */
+
+.imageGallery {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 20px;
+}
+
+.loadMoreBtn {
+  width: 100%;
+  padding: 0.7rem;
+}

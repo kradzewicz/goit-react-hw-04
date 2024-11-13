@@ -1,0 +1,12 @@
+/** @format */
+
+.SearchBar__box {
+  display: block;
+  background-color: aliceblue;
+  padding: 2rem;
+}
+
+.SearchBar__form {
+  display: flex;
+  justify-content: center;
+}
