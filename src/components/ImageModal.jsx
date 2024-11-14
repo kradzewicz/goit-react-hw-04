@@ -1,10 +1,9 @@
 /** @format */
 
-import { useState } from "react";
 import Modal from "react-modal";
 
 const customStyles = {
-  overlay: { opacity: "0.1" },
+  overlay: { background: "rgba(0,0,0,0.15)" },
   content: {
     top: "50%",
     left: "50%",
@@ -15,36 +14,16 @@ const customStyles = {
   },
 };
 
-export function ImageModal({ image }) {
-  let subtitle;
-  const [modalIsOpen, setIsOpen] = useState(false);
-
-  function openModal() {
-    setIsOpen(true);
-  }
-
-  function closeModal() {
-    setIsOpen(false);
-  }
-
-  function afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    subtitle.style.color = "#f00";
-  }
-
-  return (
-    { openModal },
-    (
-      <Modal
-        isOpen={modalIsOpen}
-        onAfterOpen={afterOpenModal}
-        onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel="Example Modal">
-        <div>
-          <img src={image.urls.regular} alt={image.alt_description} />
-        </div>
-      </Modal>
-    )
+export function ImageModal({ image, modalIsOpen, closeModal }) {
+  return image === "" ? (
+    ""
+  ) : (
+    <Modal
+      isOpen={modalIsOpen}
+      onRequestClose={closeModal}
+      style={customStyles}
+      contentLabel="ImageModal">
+      <img src={image.urls.regular} alt={image.alt_description} />
+    </Modal>
   );
 }

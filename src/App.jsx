@@ -1,5 +1,5 @@
 /** @format */
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import { useGetImages } from "./hooks/useGetImages";
 import { SearchBar } from "./components/SearchBar";
