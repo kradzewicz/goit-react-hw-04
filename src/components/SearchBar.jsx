@@ -3,14 +3,7 @@
 import { Formik } from "formik";
 import css from "../module_css/SearchBar.module.css";
 
-export function SearchBar({
-  disabled,
-  setSearchQuery,
-  setPage,
-  getImages,
-  page,
-  setImageList,
-}) {
+export function SearchBar({ disabled, setSearchQuery, setPage, getImages }) {
   const handleSearch = (e) => {
     e.preventDefault();
     const form = e.target;

@@ -1,5 +1,5 @@
 /** @format */
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./App.css";
 import { useGetImages } from "./hooks/useGetImages";
 import { SearchBar } from "./components/SearchBar";
@@ -19,7 +19,7 @@ function App() {
   } = useGetImages();
 
   const [searchQuery, setSearchQuery] = useState("");
-  console.log(isError);
+
   if (isLoading) {
     return (
       <>
@@ -40,22 +40,22 @@ function App() {
 
   return (
     <>
-      <SearchBar
-        getImages={getImages}
-        setSearchQuery={setSearchQuery}
-        setPage={setPage}
-        page={page}
-        setImageList={setImageList}
-      />
+      <div>
+        <SearchBar
+          getImages={getImages}
+          setSearchQuery={setSearchQuery}
+          setPage={setPage}
+        />
 
-      <ImageGallery
-        imageList={imageList}
-        setImageList={setImageList}
-        getImages={getImages}
-        searchQuery={searchQuery}
-        setPage={setPage}
-        page={page}
-      />
+        <ImageGallery
+          imageList={imageList}
+          getImages={getImages}
+          searchQuery={searchQuery}
+          setPage={setPage}
+          page={page}
+          // scrollToElement={scrollToElement}
+        />
+      </div>
     </>
   );
 }
